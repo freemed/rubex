@@ -7,25 +7,30 @@
 
 package main
 
-import "fmt"
-import re "github.com/moovweb/rubex"
-import "time"
-import "regexp"
-import "runtime"
-import "os"
-import "strconv"
-import "sync"
+import (
+	"fmt"
+	re "github.com/freemed/rubex"
+	"os"
+	"regexp"
+	"runtime"
+	"strconv"
+	"sync"
+	"time"
+)
 
-var mu sync.Mutex
-var count = 0
-var re1 []Matcher
-var re2 []Matcher
+var (
+	mu    sync.Mutex
+	count = 0
+	re1   []Matcher
+	re2   []Matcher
+	STR   = "abcdabc"
+)
 
-const NUM = 100
-const NNN = 1000
-const CCC = 100000
-
-var STR = "abcdabc"
+const (
+	NUM = 100
+	NNN = 1000
+	CCC = 100000
+)
 
 type Matcher interface {
 	MatchString(string) bool
